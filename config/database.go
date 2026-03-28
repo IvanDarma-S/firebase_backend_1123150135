@@ -1,26 +1,29 @@
 package config
+
 import (
- "fmt"
- "log"
- "os"
- "github.com/yourusername/gin-firebase-backend/models"
- "gorm.io/driver/mysql"
- "gorm.io/gorm"
- "gorm.io/gorm/logger"
+	"fmt"
+	//"log"
+	"os"
+	//"github.com/IvanDarma-S/firebase_backend_1123150135/models"
+	//"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+	//"gorm.io/gorm/logger"
 )
+
 // DB adalah instance GORM global yang dipakai di seluruh aplikasi
 var DB *gorm.DB
+
 func InitDatabase() {
- // Ambil konfigurasi dari environment variables
- host := os.Getenv("DB_HOST")
- port := os.Getenv("DB_PORT")
- user := os.Getenv("DB_USER")
- password := os.Getenv("DB_PASSWORD")
- dbname := os.Getenv("DB_NAME")
- // Format DSN (Data Source Name) untuk MySQL
- // Format: user:pass@tcp(host:port)/dbname?params
- dsn := fmt.Sprintf(
- "%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
- user, password, host, port, dbname,
- )
+	// Ambil konfigurasi dari environment variables
+	host := os.Getenv("localhost")
+	port := os.Getenv("3306")
+	user := os.Getenv("ivan")
+	password := os.Getenv("admin123")
+	dbname := os.Getenv("catalog_1123150135")
+	// Format DSN (Data Source Name) untuk MySQL
+	// Format: user:pass@tcp(host:port)/dbname?params
+	dsn := fmt.Sprintf(
+		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+		user, password, host, port, dbname,
+	)
 }
