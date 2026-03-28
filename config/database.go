@@ -2,13 +2,13 @@ package config
 
 import (
 	"fmt"
-	//"log"
+	"log"
 	"os"
+
 	//"github.com/IvanDarma-S/firebase_backend_1123150135/models"
-	//"gorm.io/driver/mysql"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	//"gorm.io/gorm/logger"
 )
 
 // DB adalah instance GORM global yang dipakai di seluruh aplikasi
@@ -32,5 +32,9 @@ func InitDatabase() {
 		Logger: logger.Default.LogMode(logger.Info), // Log semua query SQL
 	}
 	// Buka koneksi
-
+	var err error
+	DB, err = gorm.Open(mysql.Open(dsn), gormConfig)
+	if err != nil {
+		log.Fatalf("Gagal koneksi ke database: %v", err)
+	}
 }
