@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/IvanDarma-S/firebase_backend_1123150135/config"
-	//"github.com/IvanDarma-S/firebase_backend_1123150135/routes"
+	"github.com/IvanDarma-S/firebase_backend_1123150135/routes"
 	"github.com/joho/godotenv"
 )
 
