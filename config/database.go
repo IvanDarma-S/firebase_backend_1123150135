@@ -7,6 +7,7 @@ import (
 	//"github.com/IvanDarma-S/firebase_backend_1123150135/models"
 	//"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 	//"gorm.io/gorm/logger"
 )
 
@@ -26,4 +27,10 @@ func InitDatabase() {
 		"%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
 		user, password, host, port, dbname,
 	)
+	// Konfigurasi GORM
+	gormConfig := &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info), // Log semua query SQL
+	}
+	// Buka koneksi
+
 }
