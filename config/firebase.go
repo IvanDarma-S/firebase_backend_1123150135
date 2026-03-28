@@ -26,4 +26,5 @@ func InitFirebase() {
 	if err != nil {
 		log.Fatalf("Gagal mendapatkan Firebase Auth client: %v", err)
 	}
+	log.Println("Firebase Admin SDK berhasil diinisialisasi")
 }
